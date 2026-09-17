@@ -4,7 +4,7 @@ sidebarTitle: Quickstart
 description: "Audit every coding agent's configuration in your repository in 90 seconds - Claude Code, Codex, Cursor, Copilot, Antigravity, OpenCode and more - with one read-only command."
 ---
 
-`gitmesh doctor` reads the agent configuration committed in a repository (instruction files, rules, MCP configs, skills, commands, subagents, permission and hook settings) across eleven agent families in one pass, diffs the instruction copies different agents read, and reports risk findings with stable ids (GM001-GM011). It never writes a file, never opens a network connection, and never runs a subprocess.
+`gitmesh doctor` reads the agent configuration committed in a repository (instruction files, rules, MCP configs, skills, commands, subagents, permission and hook settings) across eleven registered adapters (ten agent and format families plus the third-party-manager detector) in one pass, diffs the instruction copies different agents read, and reports risk findings with stable ids (GM001-GM011). It never writes a file, never opens a network connection, and never runs a subprocess.
 
 ## 1. Run it (10 seconds)
 
@@ -60,7 +60,7 @@ Findings (1 error, 1 warning, 0 info)
 Score 75/100
 ```
 
-- **Inventory** lists every artifact each adapter would read, grouped by adapter. One file can appear under several adapters: eight agent families read a root `AGENTS.md`. Artifacts owned by a third-party manager (Ruler, rulesync, symlink managers, skills-lock, mcp-lock) are labeled `managed by X` and are never a finding.
+- **Inventory** lists every artifact each adapter would read, grouped by adapter. One file can appear under several adapters: eight adapters claim a root `AGENTS.md`. Artifacts owned by a third-party manager (Ruler, rulesync, symlink managers, skills-lock, mcp-lock) are labeled `managed by X` and are never a finding.
 - **Drift** compares the one instruction document each agent reads at the repository root (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`, `.github/copilot-instructions.md`, ...) block by block after normalization. A symlinked copy, or a `CLAUDE.md` that imports `@AGENTS.md`, is one source rather than a divergent pair. Here the shim is recognized, so there is nothing to compare.
 - **Findings** are risk rules with stable ids; each id has its own page under [findings](/findings/overview). Secret values are always redacted: a finding names the file, line and key, never the value.
 - **Score** starts at 100 and subtracts 20 per error, 5 per warning and 5 per divergent instruction pair. Informational findings cost nothing.

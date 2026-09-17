@@ -19,7 +19,7 @@ Adjacent and narrower: **AgentLinter** (agentlinter.com) ships prompt-injection 
 
 ## What doctor does instead
 
-- **Inventory**: every artifact each of eleven agent families reads, plus third-party managers, in one read-only pass.
+- **Inventory**: every artifact each of the eleven registered adapters reads, third-party-manager surfaces included, in one read-only pass.
 - **Cross-tool drift** between the instruction copies different agents read.
 - **Structural risk findings** [GM001-GM011](/findings/overview): committed secrets and bypass modes, missing `.env` protection, unpinned executable skills, MCP definitions that disagree across tools, broken managed markers, oversized instruction files, orphan and mis-scoped config, the missing `AGENTS.md` bridge, and contradictions inside one tool's config.
 

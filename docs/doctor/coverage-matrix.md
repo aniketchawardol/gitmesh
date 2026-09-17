@@ -11,12 +11,12 @@ Every row is one adapter in doctor's registry. A cell names the files that adapt
 
 | Adapter | Instructions | Rules / scoped | MCP | Skills | Commands / subagents | Permissions / hooks / sandbox / org |
 |---|---|---|---|---|---|---|
-| `claude-code` | `CLAUDE.md` tree (nested), `CLAUDE.local.md`; `~/.claude/CLAUDE.md` with `--user` | `.claude/rules/**` | `.mcp.json` | `.claude/skills/*/SKILL.md` | `.claude/commands/**`, `.claude/agents/*` | `.claude/settings.json`, `.claude/settings.local.json`; `.claude-plugin/plugin.json` and `marketplace.json`; managed-settings probe |
+| `claude-code` | `CLAUDE.md` tree (nested), `CLAUDE.local.md`; `~/.claude/CLAUDE.md` with `--user` | `.claude/rules/**` | `.mcp.json` | `.claude/skills/*/SKILL.md` | `.claude/commands/**/*.md`, `.claude/agents/**/*.md` | `.claude/settings.json`, `.claude/settings.local.json`; `.claude-plugin/plugin.json` and `marketplace.json`; managed-settings probe |
 | `codex` | `AGENTS.md` (nested) | nested `AGENTS.md` | `[mcp_servers]` in `.codex/config.toml` | `.agents/skills/*/SKILL.md` | `.codex/agents/*.toml` | `.codex/config.toml`; execpolicy `.rules`; `~/.codex` or `CODEX_HOME` with `--user`; `requirements.toml` probe |
-| `cursor` | `AGENTS.md` (nested), legacy `.cursorrules` | `.cursor/rules/**/*.mdc` (nested) | `.cursor/mcp.json` | - | `.cursor/agents/*` | `.cursor/hooks.json` |
-| `copilot` | `AGENTS.md` (nested), `.github/copilot-instructions.md` | `.github/instructions/**/*.instructions.md` | `.vscode/mcp.json` | - | `.github/agents/*` | `chat.tools.*.autoApprove` keys in `.vscode/settings.json` |
+| `cursor` | `AGENTS.md` (nested), legacy `.cursorrules` | `.cursor/rules/**/*.mdc` (nested) | `.cursor/mcp.json` | - | `.cursor/agents/**/*.md` | `.cursor/hooks.json` |
+| `copilot` | `AGENTS.md` (nested), `.github/copilot-instructions.md` | `.github/instructions/**/*.instructions.md` | `.vscode/mcp.json` | - | `.github/agents/**/*.md` | `chat.tools.*.autoApprove` keys in `.vscode/settings.json` |
 | `antigravity` | `GEMINI.md` (nested) | `rules/` in plugin and extension bundles | `.gemini/settings.json`, `mcp_config.json` (root and bundles) | `.agent/skills/*/SKILL.md`, bundle `skills/` | bundle `agents/` | bundle `hooks.json` and `plugin.json`; Antigravity CLI settings probe |
-| `opencode` | `AGENTS.md` (nested) | - | `mcp` in `opencode.json` or `.opencode/opencode.jsonc` | `.opencode/skill/` and `.opencode/skills/` | `.opencode/command/*`, `.opencode/agent/*` | `permission` in `opencode.json`; plugins and themes inventoried |
+| `opencode` | `AGENTS.md` (nested) | - | `mcp` in `opencode.json` or `.opencode/opencode.jsonc` | `.opencode/skill/` and `.opencode/skills/` | `.opencode/command(s)/**/*.md`, `.opencode/agent(s)/**/*.md`, `.opencode/mode(s)/*.md` | `permission` in `opencode.json`; plugins and themes inventoried |
 | `agentsmd` | `AGENTS.md` at any depth | - | - | - | - | - |
 | `devin` | `AGENTS.md` (nested) | `.devin/rules/`, `.windsurf/rules/`, legacy `.windsurfrules` | - | `.devin/skills/`, `.windsurf/skills/` | `.windsurf/workflows/` | `.windsurf/hooks.json`, `.devin/blueprint.yaml` |
 | `cline` | `AGENTS.md` | `.clinerules/**`, legacy single-file `.clinerules` (and the `.cursorrules` and `.windsurfrules` it also reads) | - | - | `.clinerules/workflows/` | `.clinerules/hooks/*`, `.clineignore` |
